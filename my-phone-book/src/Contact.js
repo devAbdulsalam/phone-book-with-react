@@ -29,29 +29,23 @@ const Contact = () => {
 
     const DeleteContact = (contactId)=> {
     let items = useLocalStorage()
-    items = items.filter((item) => {item.contactId !== contactId){
-            
-            return item
-        }
-        console.log("item deleted")
-    })
-
+    items = items.filter((item) => item.contactId !== contactId)
     localStorage.setItem("contacts", JSON.stringify(items))
 }
  const FullsettingMenu = () => {
-            return(
-            <div className="bg-transparent z-50 fixed w-full h-full top-0 left-0 p-2 hidden justify-end">
-                <div id="settinglinks" className="border-none bg-white shadow-lg relative w-4/6 h-fit mt-8 ml-10 text-xl pointer-events-auto mx-2
-                    rounded-md outline-none text-current">
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Link</h1>
-                    <h1 id="deleteContact" className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300" onClick={() => {DeleteContact(id)}}>Delete</h1>
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Share</h1>
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Create shortcut</h1> 
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Open auto recording</h1>
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Set ringtone</h1>
-                    <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Route to voicemail</h1>
-                </div>
+        return(
+        <div className="bg-transparent z-50 fixed w-full h-full top-0 left-0 p-2 hidden justify-end">
+            <div id="settinglinks" className="border-none bg-white shadow-lg relative w-4/6 h-fit mt-8 ml-10 text-xl pointer-events-auto mx-2
+                rounded-md outline-none text-current">
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Link</h1>
+                <h1 id="deleteContact" className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300" onClick={() => {DeleteContact(id)}}>Delete</h1>
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Share</h1>
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Create shortcut</h1> 
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Open auto recording</h1>
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Set ringtone</h1>
+                <h1 className="p-3 cursor-pointer hover:bg-gray-100 active:bg-gray-300">Route to voicemail</h1>
             </div>
+        </div>
         )
     }
 
