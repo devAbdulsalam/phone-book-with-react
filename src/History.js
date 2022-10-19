@@ -6,7 +6,8 @@ import {useLocalStorage} from './LocalStorage';
 const History = () => {
     const navigate = useNavigate();
 	const [showKeypad, setShowKeyPad] = useState(false)
-    const [showSearch, setshowSearch] = useState(false)
+    const [showSearch, setshowSearch] = useState(false)    
+    const [searchInput, setSearchInput] = useState(false)
     const [dialNumber, setDialNumber] = useState('');
     const [history, setHistory]  = useState([]);
     const fullHistory = useLocalStorage()
@@ -15,14 +16,24 @@ const History = () => {
         
     }, [fullHistory])
 	const [showMoreDetails, setMoreDetails] = useState(false)
-	// const [dialNumber, setDialNumber] = useState('')
-    // const handleChange = (e) => {
-    //      setDialNumber(e.target.value)
-    //      console.log(dialNumber)
-    // };
-    const handleSearch = () =>{
-        setshowSearch(!showSearch)
-        // setDialNumber(e.target.value)
+	const handleSearch = () =>{
+        setshowSearch(true)
+        setSearchInput(true)
+        setShowKeyPad(false)
+    }
+    const handleKeypad = () =>{
+        if(dialNumber){
+            setshowSearch(true)
+            setShowKeyPad(!showKeypad)
+            setSearchInput(true)
+            console.log("yes dialNumber")
+        }
+        if(!dialNumber){
+            console.log("no dialNumber")
+            setshowSearch(true)
+            setSearchInput(false)
+            setShowKeyPad(true)
+        }
     }
   return (
 	<div id="head" className="bg-blue-300 w-full relative max-h-screen overflow-auto ">
@@ -111,10 +122,10 @@ const History = () => {
 					</div>
 				</section>
 			
-        {showSearch && <Search setDialNumber={setDialNumber} dialNumber={dialNumber}/>}
-        {showKeypad && <Keypad setDialNumber={setDialNumber} dialNumber={dialNumber}/>}
+        {showSearch && <Search setDialNumber={setDialNumber} dialNumber={dialNumber} setSearchInput={setSearchInput} searchInput={searchInput} setShowKeyPad={setShowKeyPad}/>}
+        {showKeypad && <Keypad setDialNumber={setDialNumber} dialNumber={dialNumber} setShowKeyPad={setShowKeyPad} showKeypad={showKeypad} setSearchInput={setSearchInput} searchInput={searchInput} setshowSearch={setshowSearch}/>}
        
-        <div onClick={() => setShowKeyPad(!showKeypad)} className="w-20 h-20 fixed bottom-10 mx-auto left-3/4 flex justify-center items-center rounded-full font-bold text-4xl text-white bg-blue-500 cursor-pointer">
+        <button onClick={handleKeypad} className="w-20 h-20 fixed bottom-10 mx-auto left-3/4 flex justify-center items-center rounded-full font-bold text-4xl text-white bg-blue-500 cursor-pointer">
             <div className="flex flex-col justify-center items-center -space-y-5 space-x-1 text-center">
                 <div className="-mt-3">
                     <span className="ml-1">.</span>
@@ -128,7 +139,7 @@ const History = () => {
                 </div>
                 <span className="w-full px-1 -md-2">.</span>
             </div>
-        </div>
+        </button>
     </div>
   )
 }
