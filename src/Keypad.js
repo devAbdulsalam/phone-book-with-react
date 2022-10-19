@@ -39,7 +39,7 @@ const Keypad = ({ setDialNumber, dialNumber, setShowKeyPad, setSearchInput, sets
         }
     }
 
-  return ( <section id="dialpad" className="mx-auto w-full md:w-1/2 shadow-md bg-gray-400 fixed z-50 bottom-0">
+  return ( <section id="dialpad" className="mx-auto w-full md:w-3/4 shadow-md bg-gray-400 fixed right-1/2 translate-x-1/2 z-50 bottom-0">
             <div className="bg-white h-full  md:w-full mx-auto">
                 <div id="displaydialinput" className="border-b-2 border-gray-400 border-solid">
                     <input  type="text" className=" text-3xl text-center w-full p-3" name="dialNumber" value={dialNumber} onChange={handleChange}/>

@@ -25,8 +25,6 @@ const Calling = () => {
 	const [speaker, setSpeaker] = useState(false)
 	const audioElem = useRef(null)
 	// const [PlayAudio, setPlayAudio]  = useState(false);
-	// const [keyPad, setKeyPad]  = useState(false);
-	// const [callTime, setCallTime]  = useState(false);
 	const playAudio = () => {
 		audioElem.current.play( )
   	}

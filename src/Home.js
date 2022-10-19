@@ -71,7 +71,7 @@ const Home = () => {
         {showSearch && <Search setDialNumber={setDialNumber} dialNumber={dialNumber} setSearchInput={setSearchInput} searchInput={searchInput} setShowKeyPad={setShowKeyPad}/>}
         {showKeypad && <Keypad setDialNumber={setDialNumber} dialNumber={dialNumber} setShowKeyPad={setShowKeyPad} showKeypad={showKeypad} setSearchInput={setSearchInput} searchInput={searchInput} setshowSearch={setshowSearch}/>}
        
-        <button onClick={handleKeypad} className="w-20 h-20 z-100 absolute bottom-10 right-1/2 translate-x-1/2 flex justify-center items-center rounded-full font-bold text-4xl text-white bg-blue-500 cursor-pointer">
+        <button onClick={handleKeypad} className="w-20 h-20 z-100 fixed bottom-10 right-1/2 translate-x-1/2 flex justify-center items-center rounded-full font-bold text-4xl text-white bg-blue-500 cursor-pointer">
             <div className="flex flex-col justify-center items-center -space-y-5 space-x-1 text-center">
                 <div className="-mt-3">
                     <span className="ml-1">.</span>

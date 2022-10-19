@@ -48,7 +48,7 @@ const CreateContactForm = () => {
                             <h1 className="text-white text-xl font-bold">Create contact</h1>
                         </div>
                         <div className=" flex p-1 m-2">
-                            <button className="text-white bg-blue-500 border-0 py-2 px-10 
+                            <button  id="mySubmit" className="text-white bg-blue-500 border-0 py-2 px-10 
                             focus:outline-none  hover:bg-blue-700 rounded text-lg font-bold" type='submit' onClick={handleSubmit}>Save</button>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ const CreateContactForm = () => {
                             </div>
                         </div>
                         <div className="mt-3">
-                            <form  className="mx-2 flex flex-col space-y-4 items-center">
+                            <form id="mySubmit" className="mx-2 flex flex-col space-y-4 items-center">
                                 <div className="flex text-2xl items-center justify-center m-2">
                                     <div className="m-2">
                                         <i className="fa fa-user"></i>
